@@ -50,7 +50,7 @@ function Otp() {
   function timer() {
     // UTC 기준
     let epoch = Math.round(new Date().getTime() / 1000.0);
-    console.log(epoch % 30);
+
     let countDown = 30 - (epoch % 30);
     if (epoch % 30 === 0) {
       updateOtp();
@@ -59,6 +59,12 @@ function Otp() {
   }
 
   function base32ToHex(base32) {
+    //  It uses an alphabet of A–Z, followed by 2–7.
+    //  0 and 1 are skipped due to their similarity with the letters O and I
+    //  (thus "2" actually has a decimal value of 26).
+
+    // 베이스32는 32진법이다. 사람이 읽을 수 있는 방식을 Base32 숫자를 나타내는 한가지 방법은
+    // A-Z, 2-7로 표기 / 0,1 없는 이유는 알파벳 O, I와 헷갈리지 말라고
     const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
     let bits = "";
     let hex = "";
@@ -79,12 +85,13 @@ function Otp() {
     if (len + 1 >= str.length) {
       str = Array(len + 1 - str.length).join(pad) + str;
     }
+
     return str;
   }
 
   function updateOtp() {
 
-    const key = base32ToHex(SECRET);
+    const key = base32ToHex(SECRET)
     const epoch = Math.round(new Date().getTime() / 1000.0);
     const time = leftPad(dec2hex(Math.floor(epoch / 30)), 16, '0');
 
@@ -102,7 +109,6 @@ function Otp() {
   }
 
   function hex2dec(s) {
-    // 받은 값을 16진수의 정수로 변환
     return parseInt(s, 16);
   }
 
