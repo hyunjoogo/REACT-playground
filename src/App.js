@@ -1,13 +1,17 @@
 import ShakeInput from "./shakeInput/ShakeInput";
-import Otp from "./OTP/Otp";
 import ScrollEvent from "./scroll-event/ScrollEvent";
+import NumberOfScrollEvents from "./efficientEventHandlering/NumberOfScrollEvents";
+import Debounce from "./efficientEventHandlering/Debounce";
+import Otp from "./OTP/Otp";
 
 
 function App() {
   return (
     // <ShakeInput/>
-    // <Otp/>
-    <ScrollEvent/>
+    <Otp/>
+    // <ScrollEvent/>
+    // <NumberOfScrollEvents/>
+    // <Debounce/>
   );
 }
 
