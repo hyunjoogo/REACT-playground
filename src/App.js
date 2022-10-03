@@ -4,7 +4,7 @@ import NumberOfScrollEvents from "./Infinite-Scrolling/efficientEventHandlering/
 import DebounceAndThrottle from "./Infinite-Scrolling/efficientEventHandlering/DebounceAndThrottle";
 import Otp from "./OTP/Otp";
 import IntersectionObserverScroll from "./Infinite-Scrolling/Intersection-Observer/IntersectionObserverScroll";
-import ReactIntersection from "./Infinite-Scrolling/react-intersection-obseerver/ReactIntersection";
+import ReactIntersection from "./Infinite-Scrolling/react-intersection-observer/ReactIntersection";
 
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
     // <ShakeInput/>
     // <Otp/>
     // <ScrollEvent/>
-    // <IntersectionObserverScroll/>
-    <ReactIntersection/>
+    <IntersectionObserverScroll/>
+    // <ReactIntersection/>
     // <NumberOfScrollEvents/>
     // <DebounceAndThrottle/>
   );

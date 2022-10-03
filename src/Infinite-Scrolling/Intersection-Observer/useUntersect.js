@@ -5,7 +5,6 @@ const useIntersect = (onIntersect, options) => {
   const callback = useCallback(
     (entries, observer) => {
       entries.forEach((entry) => {
-        // console.log(entry);
         if (entry.isIntersecting) onIntersect(entry, observer);
       });
     },
@@ -15,10 +14,9 @@ const useIntersect = (onIntersect, options) => {
   useEffect(() => {
     if (!ref.current) return;
     const observer = new IntersectionObserver(callback, options);
-    console.log(ref, options, callback);
     observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [ref, options, callback]);
+  }, [ref, callback, options]);
 
   return ref;
 };

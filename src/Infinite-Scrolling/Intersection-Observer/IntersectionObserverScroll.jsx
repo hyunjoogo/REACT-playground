@@ -19,7 +19,7 @@ const IntersectionObserverScroll = () => {
   const [hasNextPage, setNextPage] = useState(true);
 
   const ref = useIntersect(async (entry, observer) => {
-    observer.unobserve(entry.target);
+    // observer.unobserve(entry.target);
     if (hasNextPage && !isFetching) {
       fetch();
     }
@@ -48,7 +48,7 @@ const IntersectionObserverScroll = () => {
         <Item key={user.id}>{user.id} / {user.name} / 인터섹션</Item>
       ))}
       {isFetching && <>Loading...</>}
-      <Target className="ref2" ref={ref}/>
+      <Target className="ref2" ref={ref} />
     </Container>
   );
 };
@@ -71,5 +71,6 @@ const Item = styled.div`
 `;
 
 const Target = styled.div`
-  height: 1px
+  height: 10px;
+  background-color: red;
 `;
